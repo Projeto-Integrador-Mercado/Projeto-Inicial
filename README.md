@@ -13,10 +13,11 @@ Nesta etapa, o projeto está em planejamento e o backlog contém somente duas ta
 
 ## Documentação
 
+- [Primeira entrega de Desenvolvimento Web](DWEB_Primeira_Entrega.md) — documento preenchido e código dos dois protótipos.
 - [Discovery e escopo inicial](Discovery.md)
 - [Backlog inicial](Backlog.md)
 - [Quadro Projeto 2º Semestre](https://github.com/orgs/Projeto-Integrador-Mercado/projects/2/views/1)
 
-O cadastro completo de produtos, as demais telas e um possível relatório serão detalhados em etapas posteriores. Vendas, financeiro, fiados e integrações não fazem parte desta versão.
+A proposta de Desenvolvimento Web agora detalha o CRUD de produtos e as duas telas exigidas pela disciplina. Sua implementação será feita pela equipe; um possível relatório permanece para uma etapa posterior. Vendas, financeiro, fiados e integrações não fazem parte desta versão.
 
 **Situação:** planejamento inicial. A criação das issues não significa que as funcionalidades já foram implementadas. Tecnologias, responsáveis e prazos serão definidos pela equipe.
