@@ -3,22 +3,19 @@
 ## Sobre o projeto
 Sistema de gestão de mercado desenvolvido na disciplina de Engenharia de Software. O projeto é construído de forma incremental: cada funcionalidade é registrada como uma **história de usuário** no backlog, detalhada em **tarefas** e acompanhada no **board** (Kanban).
 
-**Repositório:** Projeto-Inicial
-**Equipe:** [nomes dos integrantes e papéis]
-**Disciplina / Professor:** [nome]
+**Equipe:** Victor Favarin, Richard Souza, Rafae Dorsa e Gabriel Otávio
+**Disciplina / Professor:** Glauco
 
 ## Escopo do semestre
 
-| Código | História de usuário | Issue | Status |
-|--------|---------------------|-------|--------|
-| US-001 | Tela de login | #1 | Concluída |
-| US-002 | Backend de entrada e saída de produtos | #2 | Em andamento |
-| US-003 | Dashboard | [#] | Concluída |
-| US-004 | Cadastro de fornecedores | [#] | Concluída |
-| US-005 | Estoque | [#] | Concluída |
-| US-006 | Relatórios | [#] | Concluída |
-
-> Atualize a coluna **Issue** com o número real de cada issue e a coluna **Status** conforme o andamento.
+| Código | História de usuário | Status |
+|--------|---------------------|--------|
+| US-001 | Tela de login | Concluída |
+| US-002 | Dashboard | Concluída |
+| US-003 | Produtos (backend de entrada e saída) | Concluída |
+| US-004 | Estoque | Concluída |
+| US-005 | Relatórios | Concluída |
+| US-006 | Fornecedores | Concluída |
 
 ## Histórias de usuário
 
@@ -30,15 +27,7 @@ Principais entregas:
 - Validar os campos obrigatórios
 - Exibir mensagens claras de acesso negado ou falha na comunicação
 
-### US-002: Backend de entrada e saída de produtos
-**Como** gestor, **quero** registrar a entrada e a saída de produtos para manter o controle da movimentação.
-
-Principais entregas:
-- Registro de entrada de produtos
-- Registro de saída de produtos
-- Consulta do histórico de movimentações
-
-### US-003: Dashboard
+### US-002: Dashboard
 **Como** gestor, **quero** visualizar um painel com indicadores do mercado para acompanhar rapidamente a situação do estoque e das movimentações.
 
 Principais entregas:
@@ -46,15 +35,16 @@ Principais entregas:
 - Alerta de produtos com estoque baixo
 - Layout responsivo
 
-### US-004: Cadastro de fornecedores
-**Como** gestor, **quero** cadastrar e gerenciar fornecedores para saber a origem dos produtos.
+### US-003: Produtos (backend de entrada e saída)
+**Como** gestor, **quero** registrar a entrada e a saída de produtos para manter o controle da movimentação.
 
 Principais entregas:
-- Cadastro com nome, CNPJ, telefone e e-mail
-- Listagem, edição e exclusão de fornecedores
-- Validação de campos e de CNPJ duplicado
+- Cadastro e consulta de produtos
+- Registro de entrada de produtos
+- Registro de saída de produtos
+- Histórico de movimentações
 
-### US-005: Estoque
+### US-004: Estoque
 **Como** gestor, **quero** consultar e controlar o estoque para saber a quantidade disponível de cada produto.
 
 Principais entregas:
@@ -63,13 +53,21 @@ Principais entregas:
 - Bloqueio de saída maior que a quantidade disponível
 - Indicação de estoque baixo
 
-### US-006: Relatórios
+### US-005: Relatórios
 **Como** gestor, **quero** gerar relatórios de estoque e de movimentação para apoiar a tomada de decisão.
 
 Principais entregas:
 - Relatório de estoque atual
 - Relatório de entradas e saídas por período
 - Filtros por período, produto e fornecedor
+
+### US-006: Fornecedores
+**Como** gestor, **quero** cadastrar e gerenciar fornecedores para saber a origem dos produtos.
+
+Principais entregas:
+- Cadastro com nome, CNPJ, telefone e e-mail
+- Listagem, edição e exclusão de fornecedores
+- Validação de campos e de CNPJ duplicado
 
 ## Como o board funciona
 
