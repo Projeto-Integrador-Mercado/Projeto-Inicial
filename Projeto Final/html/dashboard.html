@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard - Mercadinho Silva Camargo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="pagina-dashboard">
+    <header class="cabecalho">
+        <div class="cabecalho-interno">
+            <div>
+                <h1>MERCADINHO SILVA CAMARGO</h1>
+                <p>Olá, <span id="saudacao">usuário</span>!</p>
+            </div><button class="btn" id="sair">↪ Sair</button>
+        </div>
+    </header>
+    <main class="dashboard-conteudo">
+        <p class="dashboard-instrucao">Escolha uma opção abaixo:</p>
+        <div class="cards-dashboard"><a class="card-dash card-prod" href="produtos.html"><span
+                    class="icone-dash">▣</span><strong>Produtos</strong><span>Cadastrar e consultar
+                    produtos</span></a><a class="card-dash card-forn" href="fornecedores.html"><span
+                    class="icone-dash">♧</span><strong>Fornecedores</strong><span>Cadastrar e consultar
+                    fornecedores</span></a><a class="card-dash card-est" href="estoque.html"><span
+                    class="icone-dash">▤</span><strong>Estoque</strong><span>Ver estoque e registrar
+                    entradas/saídas</span></a><a class="card-dash card-rel" href="relatorios.html"><span
+                    class="icone-dash">▥</span><strong>Relatórios</strong><span>Histórico de movimentações</span></a>
+        </div>
+    </main>
+    <script src="../js/dados.js"></script>
+    <script>document.getElementById('saudacao').textContent = sessionStorage.getItem('usuario') || 'usuário'; document.getElementById('sair').onclick = sair;</script>
+</body>
+
+</html>

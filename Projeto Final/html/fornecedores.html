@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fornecedores - Mercadinho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="pagina-fornecedores">
+    <header class="cabecalho cor-fornecedor">
+        <div class="cabecalho-interno"><a href="../html/dashboard.html" class="voltar" title="Voltar ao dashboard">←</a>
+            <div>
+                <h1>Fornecedores</h1>
+                <p id="contador">0 fornecedores cadastrados</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="barra"><input id="busca"
+                placeholder="Buscar fornecedores por nome ou produtos fornecidos..."><button class="btn btn-verde"
+                id="novo">+ Novo Fornecedor</button></div>
+        <section class="painel-form" id="painel" hidden>
+            <div class="painel-titulo cor-fornecedor">
+                <h2 id="titulo">Novo Fornecedor</h2><button class="botao-fechar" id="fechar" type="button">×</button>
+            </div>
+            <form id="formFornecedor">
+                <div class="campo"><label for="nome">Nome do Fornecedor *</label><input id="nome" required></div>
+                <div class="grade">
+                    <div class="campo"><label for="telefone">Telefone</label><input id="telefone"
+                            placeholder="(00) 0000-0000"></div>
+                    <div class="campo"><label for="whatsapp">WhatsApp</label><input id="whatsapp"
+                            placeholder="(00) 00000-0000"></div>
+                    <div class="campo"><label for="email">E-mail</label><input id="email" type="email"
+                            placeholder="contato@fornecedor.com"></div>
+                    <div class="campo"><label for="prazo">Prazo de Pagamento</label><input id="prazo"
+                            placeholder="Ex: 30 dias"></div>
+                    <div class="campo"><label for="itens">Produtos Fornecidos</label><input id="itens"
+                            placeholder="Ex: Bebidas, Laticínios"></div>
+                </div>
+                <div class="campo"><label for="endereco">Endereço</label><input id="endereco"
+                        placeholder="Rua, número, bairro, cidade"></div>
+                <div class="campo"><label for="obs">Observações</label><textarea id="obs" rows="3"></textarea></div>
+                <p id="erro" class="erro"></p>
+                <div class="rodape"><button class="btn btn-verde" type="submit">✓ Salvar</button><button
+                        class="btn btn-cinza" id="cancelar" type="button">✕ Cancelar</button></div>
+            </form>
+        </section>
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fornecedor</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Produtos</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista"></tbody>
+            </table>
+        </div>
+    </main>
+    <script src="../js/dados.js"></script>
+    <script src="../js/fornecedores.js"></script>
+</body>
+
+</html>

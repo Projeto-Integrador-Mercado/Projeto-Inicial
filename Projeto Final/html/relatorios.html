@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Relatório de Movimentações - Mercadinho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="pagina-relatorios">
+    <header class="cabecalho cor-relatorio">
+        <div class="cabecalho-interno"><a class="voltar" href="../html/dashboard.html">←</a>
+            <div>
+                <h1>Relatório de Movimentações</h1>
+                <p>MERCADINHO SILVA CAMARGO</p>
+            </div><button class="btn" id="imprimir">▣ Imprimir</button>
+        </div>
+    </header>
+    <main>
+        <section class="painel-filtro">
+            <h2>⚲ Filtros</h2>
+            <div class="filtros-grid">
+                <div class="campo"><label for="produto">Produto</label><input id="produto"
+                        placeholder="Nome do produto"></div>
+                <div class="campo"><label for="tipo">Tipo</label><select id="tipo">
+                        <option value="">Todos</option>
+                        <option value="entrada">Entradas</option>
+                        <option value="saida">Saídas</option>
+                        <option value="ajuste">Ajustes</option>
+                    </select></div>
+                <div class="campo"><label for="inicio">Data Início</label><input type="date" id="inicio"></div>
+                <div class="campo"><label for="fim">Data Fim</label><input type="date" id="fim"></div>
+            </div>
+        </section>
+        <div class="resumo-grid">
+            <div class="resumo normal"><span>↗</span><strong id="entradas">0</strong><b>Total de Entradas</b></div>
+            <div class="resumo sem-est"><span>↘</span><strong id="saidas">0</strong><b>Total de Saídas</b></div>
+            <div class="resumo ajustes"><span>⟳</span><strong id="ajustes">0</strong><b>Ajustes</b></div>
+        </div>
+        <section class="historico">
+            <div class="historico-topo">
+                <h2>Histórico de Movimentações <small id="contagem">(0 registros)</small></h2><span
+                    id="dataGeracao"></span>
+            </div>
+            <div class="tabela-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Produto</th>
+                            <th>Tipo</th>
+                            <th>Quantidade</th>
+                            <th>Estoque após</th>
+                            <th>Observação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="../js/dados.js"></script>
+    <script src="../js/relatorios.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login - Mercadinho Silva Camargo</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="login-pag">
+  <form class="login-card" id="formLogin" novalidate>
+    <h1>MERCADINHO<br>SILVA CAMARGO</h1>
+    <p class="sub">Sistema de Controle de Estoque</p>
+    <div class="campo">
+      <label for="usuario">Usuário</label>
+      <input id="usuario" placeholder="Digite seu usuário" autocomplete="username">
+    </div>
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" placeholder="Digite sua senha" autocomplete="current-password">
+    </div>
+    <p class="erro" id="erro" role="alert"></p>
+    <button class="btn btn-azul" type="submit">ENTRAR</button>
+    <p class="dica">Acesso de demonstração: admin / 1234</p>
+  </form>
+</div>
+<script src="../js/login.js"></script>
+</body>
+</html>
