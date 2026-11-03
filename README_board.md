@@ -4,6 +4,8 @@
 Sistema de gestão de mercado desenvolvido na disciplina de Engenharia de Software. O projeto é construído de forma incremental: cada funcionalidade é registrada como uma **história de usuário** no backlog, detalhada em **tarefas** e acompanhada no **board** (Kanban).
 
 **Equipe:** Victor Favarin, Richard Souza, Rafae Dorsa e Gabriel Otávio
+
+
 **Disciplina / Professor:** Glauco
 
 ## Escopo do semestre
