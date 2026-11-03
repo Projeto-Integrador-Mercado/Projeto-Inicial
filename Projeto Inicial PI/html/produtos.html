@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produtos - Mercadinho Silva Camargo</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+  <div><h1>Produtos</h1><p id="contador">0 produtos cadastrados</p></div>
+  <button class="btn" id="btnSair">Sair</button>
+</header>
+<main>
+  <div class="barra">
+    <input id="busca" placeholder="Pesquisar por nome, código de barras ou categoria" aria-label="Pesquisar">
+    <button class="btn btn-azul" id="btnNovo">+ Novo produto</button>
+  </div>
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Produto</th><th>Categoria</th><th>Cód. barras</th><th>Venda</th><th>Estoque</th><th>Ações</th></tr></thead>
+      <tbody id="lista"></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="fundo-modal" id="modal">
+  <div class="modal">
+    <div class="modal-topo"><h2 id="tituloModal">Novo Produto</h2><button id="btnFechar" aria-label="Fechar">×</button></div>
+    <form id="formProduto" novalidate>
+      <div class="grade">
+        <div class="campo"><label for="nome">Nome do Produto *</label><input id="nome"></div>
+        <div class="campo"><label for="categoria">Categoria *</label><input id="categoria"></div>
+        <div class="campo"><label for="barras">Código de Barras *</label><input id="barras" inputmode="numeric"></div>
+        <div class="campo"><label for="fornecedor">Fornecedor *</label>
+          <select id="fornecedor">
+            <option value="">Selecione o fornecedor</option>
+            <option>Distribuidora Central</option>
+            <option>Atacado Bom Preço</option>
+            <option>Bebidas do Vale</option>
+            <option>Outro</option>
+          </select></div>
+        <div class="campo"><label for="custo">Preço de Custo (R$)</label><input id="custo" type="number" step="0.01" min="0" placeholder="0,00"></div>
+        <div class="campo"><label for="venda">Preço de Venda (R$)</label><input id="venda" type="number" step="0.01" min="0" placeholder="0,00"></div>
+        <div class="campo"><label for="qtd">Quantidade em Estoque</label><input id="qtd" type="number" min="0" step="1" placeholder="0"></div>
+        <div class="campo"><label for="minimo">Estoque Mínimo (Alerta)</label><input id="minimo" type="number" min="0" step="1" placeholder="0"></div>
+        <div class="campo"><label for="unidade">Unidade de Medida</label>
+          <select id="unidade"><option value="un">Unidade (un)</option><option value="kg">Quilo (kg)</option><option value="l">Litro (l)</option><option value="cx">Caixa (cx)</option></select></div>
+        <div class="campo"><label for="local">Localização no Estoque</label><input id="local" placeholder="Ex: Prateleira A-1"></div>
+      </div>
+      <div class="campo"><label for="obs">Observações</label><textarea id="obs" rows="3"></textarea></div>
+      <p class="erro" id="erroForm" role="alert"></p>
+      <div class="rodape">
+        <button class="btn btn-azul" type="submit">✓ Salvar</button>
+        <button class="btn btn-cinza" type="button" id="btnCancelar">✕ Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="../js/produtos.js"></script>
+</body>
+</html>
