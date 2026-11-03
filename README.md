@@ -10,6 +10,7 @@ Nesta etapa, o projeto está em planejamento e o backlog contém somente duas ta
 
 1. **[US-001 — Tela de login](https://github.com/Projeto-Integrador-Mercado/Projeto-Inicial/issues/1):** formulário, validação dos campos e mensagens de acesso.
 2. **[US-002 — Backend de entrada e saída de produtos](https://github.com/Projeto-Integrador-Mercado/Projeto-Inicial/issues/2):** registro das movimentações, atualização do saldo e validação para impedir estoque negativo.
+3. **[US-003 - Tela de produtos](https://github.com/Projeto-Integrador-Mercado/Projeto-Inicial/issues/3)**tela de inserção dos produtos.
 
 ## Documentação
 
