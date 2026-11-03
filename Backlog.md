@@ -64,7 +64,7 @@ Somente duas issues compõem esta etapa. Situação inicial: **Todo**, sem respo
 
 **Dependências:** definição da tecnologia e do armazenamento; produtos de exemplo disponíveis. A integração com autenticação deverá proteger as operações antes do uso real. Cadastro completo de produtos, financeiro, vendas e relatórios ficam fora desta tarefa inicial.
 
-## User story
+## US-003 - Tela de produtos
 Como **usuário**, quero **visualizar a lista de produtos e seus detalhes** para **escolher o que desejo**.
 
 ## Descrição
