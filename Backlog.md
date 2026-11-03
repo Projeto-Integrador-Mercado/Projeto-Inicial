@@ -64,6 +64,26 @@ Somente duas issues compõem esta etapa. Situação inicial: **Todo**, sem respo
 
 **Dependências:** definição da tecnologia e do armazenamento; produtos de exemplo disponíveis. A integração com autenticação deverá proteger as operações antes do uso real. Cadastro completo de produtos, financeiro, vendas e relatórios ficam fora desta tarefa inicial.
 
+## User story
+Como **usuário**, quero **visualizar a lista de produtos e seus detalhes** para **escolher o que desejo**.
+
+## Descrição
+Criar a funcionalidade de listagem de produtos, com página de detalhes de cada item.
+
+## Critérios de aceitação
+- [ ] A lista exibe nome, imagem e preço de cada produto
+- [ ] Ao clicar em um produto, abre a página de detalhes com a descrição completa
+- [ ] Os dados vêm do banco/API, sem valores fixos no código
+- [ ] Quando não houver produtos, aparece a mensagem "Nenhum produto encontrado"
+- [ ] A tela funciona em celular e desktop (responsiva)
+
+## Tarefas
+- [ ] Modelar a entidade Produto (id, nome, descrição, preço, imagem)
+- [ ] Criar o endpoint para listar e detalhar produtos
+- [ ] Implementar a tela de listagem
+- [ ] Implementar a tela de detalhes
+- [ ] Testar os cenários principais
+
 ## Conclusão das tarefas
 
 Mover uma issue para Done somente após implementação e verificação de seus critérios de aceite. A documentação e a abertura dos cartões representam planejamento, não conclusão do software.
