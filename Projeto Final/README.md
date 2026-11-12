@@ -1,6 +1,7 @@
 # Mercadinho Silva Camargo
 
 Sistema de Controle de Estoque — Projeto Final de Desenvolvimento Web (2ª parte)
+!!!LINK DE ACESSO:https://victor-favarin.github.io/DWEB/Projeto%20Final/html/index.html?classId=99327f4c-fd52-4075-ad9a-df0ecc57586b&assignmentId=5744aa0f-08d0-4b3a-84e2-7c8ffc729dbf&submissionId=1882344c-fdd7-05bd-4cee-c873422fb22b
 
 ## 1. Integrantes do grupo
 
