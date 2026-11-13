@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+<title id="t">Diagrama de classes do Mercadinho Silva Camargo</title>
+<desc id="d">Diagrama de classes UML com associação, agregação, composição, herança e multiplicidades.</desc>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#222}.n{font-size:17px;font-weight:700}.a{font-size:14px}.m{font-size:14px;fill:#333}.s{font-size:12px;font-style:italic;fill:#555}
+.bx{fill:#fff;stroke:#444;stroke-width:2}.ln{fill:none;stroke:#444;stroke-width:1.8}.hl{fill:#fff;stroke:#444;stroke-width:1.8}.fl{fill:#444;stroke:#444;stroke-width:1.8}</style>
+<rect width="1600" height="1040" fill="#fff"/>
+<text x="800" y="28" text-anchor="middle" style="font-size:20px;font-weight:700">Mercadinho Silva Camargo — Diagrama de Classes</text>
+<rect x="40" y="40" width="300" height="146" fill="#fff"/>
+<rect x="40" y="40" width="300" height="34" fill="#e4e7ec"/>
+<rect class="bx" x="40" y="40" width="300" height="146" style="fill:none"/>
+<text class="n" x="190.0" y="64" text-anchor="middle">SessaoDemonstrativa</text>
+<line class="ln" x1="40" y1="74" x2="340" y2="74"/>
+<text class="a" x="50" y="98">- logado: String</text>
+<text class="a" x="50" y="120">- usuario: String</text>
+<line class="ln" x1="40" y1="130" x2="340" y2="130"/>
+<text class="m" x="50" y="154">+ verificarAcesso()</text>
+<text class="m" x="50" y="176">+ encerrar()</text>
+<rect x="440" y="40" width="300" height="124" fill="#fff"/>
+<rect x="440" y="40" width="300" height="34" fill="#e4e7ec"/>
+<rect class="bx" x="440" y="40" width="300" height="124" style="fill:none"/>
+<text class="n" x="590.0" y="64" text-anchor="middle">Dashboard</text>
+<line class="ln" x1="440" y1="74" x2="740" y2="74"/>
+<text class="a" x="450" y="98">- saudacao: String</text>
+<line class="ln" x1="440" y1="108" x2="740" y2="108"/>
+<text class="m" x="450" y="132">+ exibirSaudacao()</text>
+<text class="m" x="450" y="154">+ sair()</text>
+<rect x="840" y="40" width="300" height="140" fill="#fff"/>
+<rect x="840" y="40" width="300" height="34" fill="#e4e7ec"/>
+<rect class="bx" x="840" y="40" width="300" height="140" style="fill:none"/>
+<text class="n" x="990.0" y="64" text-anchor="middle">AtalhoDashboard</text>
+<line class="ln" x1="840" y1="74" x2="1140" y2="74"/>
+<text class="a" x="850" y="98">- titulo: String</text>
+<text class="a" x="850" y="120">- descricao: String</text>
+<text class="a" x="850" y="142">- destino: String</text>
+<line class="ln" x1="840" y1="152" x2="1140" y2="152"/>
+<rect x="840" y="270" width="300" height="146" fill="#fff"/>
+<rect x="840" y="270" width="300" height="34" fill="#fde8cf"/>
+<rect class="bx" x="840" y="270" width="300" height="146" style="fill:none"/>
+<text class="n" x="990.0" y="294" text-anchor="middle">ControleEstoque</text>
+<line class="ln" x1="840" y1="304" x2="1140" y2="304"/>
+<text class="a" x="850" y="328">- tipoSelecionado: String</text>
+<line class="ln" x1="840" y1="338" x2="1140" y2="338"/>
+<text class="m" x="850" y="362">+ registrarEntrada()</text>
+<text class="m" x="850" y="384">+ registrarSaida()</text>
+<text class="m" x="850" y="406">+ ajustarSaldo()</text>
+<rect x="40" y="520" width="300" height="190" fill="#fff"/>
+<rect x="40" y="520" width="300" height="34" fill="#fde8cf"/>
+<rect class="bx" x="40" y="520" width="300" height="190" style="fill:none"/>
+<text class="n" x="190.0" y="544" text-anchor="middle">Relatorio</text>
+<line class="ln" x1="40" y1="554" x2="340" y2="554"/>
+<text class="a" x="50" y="578">- filtroProduto: String</text>
+<text class="a" x="50" y="600">- filtroTipo: String</text>
+<text class="a" x="50" y="622">- dataInicio: Date</text>
+<text class="a" x="50" y="644">- dataFim: Date</text>
+<line class="ln" x1="40" y1="654" x2="340" y2="654"/>
+<text class="m" x="50" y="678">+ filtrarMovimentacoes()</text>
+<text class="m" x="50" y="700">+ calcularTotais()</text>
+<rect x="440" y="520" width="300" height="250" fill="#fff"/>
+<rect x="440" y="520" width="300" height="34" fill="#d9f2e3"/>
+<rect class="bx" x="440" y="520" width="300" height="250" style="fill:none"/>
+<text class="n" x="590.0" y="540" text-anchor="middle" font-style="italic">Movimentacao</text>
+<text class="s" x="590.0" y="553" text-anchor="middle">{abstract}</text>
+<line class="ln" x1="440" y1="554" x2="740" y2="554"/>
+<text class="a" x="450" y="578">- id: String</text>
+<text class="a" x="450" y="600">- data: Date</text>
+<text class="a" x="450" y="622">- produtoNome: String</text>
+<text class="a" x="450" y="644">- tipo: String</text>
+<text class="a" x="450" y="666">- quantidade: int</text>
+<text class="a" x="450" y="688">- saldoAnterior: int</text>
+<text class="a" x="450" y="710">- saldoFinal: int</text>
+<text class="a" x="450" y="732">- observacao: String</text>
+<line class="ln" x1="440" y1="742" x2="740" y2="742"/>
+<rect x="840" y="520" width="300" height="322" fill="#fff"/>
+<rect x="840" y="520" width="300" height="34" fill="#dbeafe"/>
+<rect class="bx" x="840" y="520" width="300" height="322" style="fill:none"/>
+<text class="n" x="990.0" y="544" text-anchor="middle">Produto</text>
+<line class="ln" x1="840" y1="554" x2="1140" y2="554"/>
+<text class="a" x="850" y="578">- id: String</text>
+<text class="a" x="850" y="600">- nome: String</text>
+<text class="a" x="850" y="622">- categoria: String</text>
+<text class="a" x="850" y="644">- codigoBarras: String</text>
+<text class="a" x="850" y="666">- custo: float</text>
+<text class="a" x="850" y="688">- precoVenda: float</text>
+<text class="a" x="850" y="710">- quantidadeAtual: int</text>
+<text class="a" x="850" y="732">- quantidadeMinima: int</text>
+<text class="a" x="850" y="754">- unidade: String</text>
+<text class="a" x="850" y="776">- localizacao: String</text>
+<text class="a" x="850" y="798">- observacoes: String</text>
+<line class="ln" x1="840" y1="808" x2="1140" y2="808"/>
+<text class="m" x="850" y="832">+ situacaoEstoque()</text>
+<rect x="1240" y="520" width="300" height="272" fill="#fff"/>
+<rect x="1240" y="520" width="300" height="34" fill="#dbeafe"/>
+<rect class="bx" x="1240" y="520" width="300" height="272" style="fill:none"/>
+<text class="n" x="1390.0" y="544" text-anchor="middle">Fornecedor</text>
+<line class="ln" x1="1240" y1="554" x2="1540" y2="554"/>
+<text class="a" x="1250" y="578">- id: String</text>
+<text class="a" x="1250" y="600">- nome: String</text>
+<text class="a" x="1250" y="622">- telefone: String</text>
+<text class="a" x="1250" y="644">- whatsapp: String</text>
+<text class="a" x="1250" y="666">- email: String</text>
+<text class="a" x="1250" y="688">- prazoEntrega: String</text>
+<text class="a" x="1250" y="710">- itensFornecidos: String</text>
+<text class="a" x="1250" y="732">- endereco: String</text>
+<text class="a" x="1250" y="754">- observacoes: String</text>
+<line class="ln" x1="1240" y1="764" x2="1540" y2="764"/>
+<rect x="225" y="900" width="210" height="102" fill="#fff"/>
+<rect x="225" y="900" width="210" height="34" fill="#d9f2e3"/>
+<rect class="bx" x="225" y="900" width="210" height="102" style="fill:none"/>
+<text class="n" x="330.0" y="924" text-anchor="middle">EntradaEstoque</text>
+<line class="ln" x1="225" y1="934" x2="435" y2="934"/>
+<text class="a" x="235" y="958">- fornecedorNome: String</text>
+<line class="ln" x1="225" y1="968" x2="435" y2="968"/>
+<text class="m" x="235" y="992">+ preencherFornecedor()</text>
+<rect x="485" y="900" width="210" height="80" fill="#fff"/>
+<rect x="485" y="900" width="210" height="34" fill="#d9f2e3"/>
+<rect class="bx" x="485" y="900" width="210" height="80" style="fill:none"/>
+<text class="n" x="590.0" y="924" text-anchor="middle">SaidaEstoque</text>
+<line class="ln" x1="485" y1="934" x2="695" y2="934"/>
+<line class="ln" x1="485" y1="946" x2="695" y2="946"/>
+<text class="m" x="495" y="970">+ validarDisponibilidade()</text>
+<rect x="715" y="900" width="210" height="80" fill="#fff"/>
+<rect x="715" y="900" width="210" height="34" fill="#d9f2e3"/>
+<rect class="bx" x="715" y="900" width="210" height="80" style="fill:none"/>
+<text class="n" x="820.0" y="924" text-anchor="middle">AjusteEstoque</text>
+<line class="ln" x1="715" y1="934" x2="925" y2="934"/>
+<line class="ln" x1="715" y1="946" x2="925" y2="946"/>
+<text class="m" x="725" y="970">+ definirQuantidadeFinal()</text>
+<polyline class="ln" points="340,100 440,100"/>
+<text class="m" x="346" y="92" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="434" y="92" text-anchor="end" style="font-weight:700">0..1</text>
+<polygon class="fl" points="740,100 751,93 762,100 751,107"/>
+<polyline class="ln" points="762,100 840,100"/>
+<polyline class="ln" points="829,93 840,100 829,107"/>
+<text class="m" x="766" y="90" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="826" y="122" text-anchor="end" style="font-weight:700">1..*</text>
+<polyline class="ln" points="560,164 560,285 840,285"/>
+<polyline class="ln" points="829,278 840,285 829,292"/>
+<text class="m" x="568" y="184" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="826" y="277" text-anchor="end" style="font-weight:700">1..1</text>
+<polyline class="ln" points="470,164 470,440 190.0,440 190.0,520"/>
+<polyline class="ln" points="183.0,509 190.0,520 197.0,509"/>
+<text class="m" x="478" y="184" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="198.0" y="504" text-anchor="start" style="font-weight:700">0..*</text>
+<polyline class="ln" points="650,164 650,235 1170,235 1170,480 1090,480 1090,520"/>
+<polyline class="ln" points="1083,509 1090,520 1097,509"/>
+<text class="m" x="658" y="184" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="1098" y="504" text-anchor="start" style="font-weight:700">0..*</text>
+<polyline class="ln" points="720,164 720,215 1390.0,215 1390.0,520"/>
+<polyline class="ln" points="1383.0,509 1390.0,520 1397.0,509"/>
+<text class="m" x="728" y="184" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="1398.0" y="504" text-anchor="start" style="font-weight:700">0..*</text>
+<polyline class="ln" points="990,416 990,520"/>
+<polyline class="ln" points="983,509 990,520 997,509"/>
+<text class="m" x="998" y="434" text-anchor="start" style="font-weight:700">1..1</text>
+<text class="m" x="998" y="504" text-anchor="start" style="font-weight:700">0..*</text>
+<polyline class="ln" points="840,320 590.0,320 590.0,520"/>
+<polyline class="ln" points="583.0,509 590.0,520 597.0,509"/>
+<text class="m" x="834" y="312" text-anchor="end" style="font-weight:700">1..1</text>
+<text class="m" x="598.0" y="504" text-anchor="start" style="font-weight:700">0..*</text>
+<polygon class="hl" points="340,580 351,573 362,580 351,587"/>
+<polyline class="ln" points="362,580 440,580"/>
+<text class="m" x="366" y="570" text-anchor="start" style="font-weight:700">0..*</text>
+<text class="m" x="434" y="602" text-anchor="end" style="font-weight:700">0..*</text>
+<polyline class="ln" points="740,580 840,580"/>
+<polyline class="ln" points="829,573 840,580 829,587"/>
+<text class="m" x="746" y="570" text-anchor="start" style="font-weight:700">0..*</text>
+<text class="m" x="826" y="570" text-anchor="end" style="font-weight:700">0..1</text>
+<polyline class="ln" points="1140,580 1240,580"/>
+<polyline class="ln" points="1229,573 1240,580 1229,587"/>
+<text class="m" x="1146" y="570" text-anchor="start" style="font-weight:700">0..*</text>
+<text class="m" x="1226" y="570" text-anchor="end" style="font-weight:700">1..1</text>
+<polygon class="hl" points="490,770 480,788 500,788"/>
+<polyline class="ln" points="490,788 490,820 330.0,820 330.0,900"/>
+<polygon class="hl" points="590.0,770 580.0,788 600.0,788"/>
+<polyline class="ln" points="590.0,788 590.0,820 590.0,820 590.0,900"/>
+<polygon class="hl" points="690,770 680,788 700,788"/>
+<polyline class="ln" points="690,788 690,820 820.0,820 820.0,900"/>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTphM2E5OThlYy03Y2M4LTRhODQtOTY1ZC1jZjljYTVlNWVmMGMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaKkK832mAtkENOaFU/BU8KcAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0OTA4NGI2Zi03ZmFlLTRmNzMtYTNhZi0wMjczODkxMTUyMDVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoCY4RjhtA1q2zZBvOsIZxdwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggPInxt1JsRjg3ZPj3r5FKWlhIq47nECxHNjYG3qgHfMukZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaPw1Djxtlvrk37Kiu1gOhe0AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIGRS5U1oNcqr0UkOQ+NeLoZGz8v8qJ3yPx0v8U4H1c93ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GS6nZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmEzYTk5OGVjLTdjYzgtNGE4NC05NjVkLWNmOWNhNWU1ZWYwYy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmU2OGViNzBlLTE3NTQtNDVhMS05MTI3LWM5ODU0YWVjOTRlZHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCA8ifG3UmxGODdk+PevkUpaWEirjucQLEc2NgbeqAd8y6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggVLboXISlGNFs+vq1aEl79ozkSWKeJl7tDUrMDButes6iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg9K219Rmnqm0uLAoVcED9U1piN4jsWtVEB7O5iFSOvU10Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQE7LMvXHY1ndM5NkKvfAIMwlJ8/Ms5iyQJfbjMDH4wdFFatEztphldFyjvQPsvdhVDu69TEnHihEtAOC7o/WIgo=</c2pa:manifest></metadata></svg>
