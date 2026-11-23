@@ -50,7 +50,10 @@ Os HTML carregam o CSS com `./style.css` e os scripts com `../js/`. Por isso, **
 
 | Usuário | Senha |
 |---|---|
-| `admin` | `1234` |
+| `Richard` | `1234` |
+| `Dorsa` | `1234` |
+| `Gabriel` | `1234` |
+| `Victor` | `1234` |
 
 Não é preciso instalar nada. Se preferir, também é possível abrir por um servidor local (por exemplo, a extensão Live Server do VS Code).
 
@@ -106,7 +109,7 @@ Um único arquivo para todo o sistema.
 | `sair()` | Encerra a sessão e volta ao login |
 
 ### `login.js`
-Compara usuário e senha com os valores fixos (`admin` / `1234`). Se estiverem corretos, grava `logado` e `usuario` no `sessionStorage` e abre o dashboard.
+Aceita Richard, Dorsa, Gabriel e Victor com a senha demonstrativa `1234`. O nome ignora maiúsculas/minúsculas e espaços nas extremidades; a sessão guarda a grafia canônica. Não há cadastro, permissões diferentes ou separação do estoque por usuário. Se estiverem corretos, grava `logado` e `usuario` no `sessionStorage` e abre o dashboard.
 
 ### `produtos.js`
 - Lista os produtos ativos (e os inativos, se o filtro estiver marcado), com busca por nome, categoria ou código de barras.
@@ -169,3 +172,7 @@ Se o navegador já tiver dados do formato anterior (categoria e fornecedor guard
 ## Tecnologias
 
 HTML5, CSS3 e JavaScript (ES6+), com `localStorage` e `sessionStorage`. Sem bibliotecas externas, exceto a fonte Nunito (Google Fonts).
+
+## Registro de mudanças — 23/11/2026
+
+Responsável: Richard Souza Chaves, com auxílio de IA. Commit: `feat: ajustar login demonstrativo`. Substituído o acesso admin pelos quatro integrantes; tela e manual atualizados em conjunto. localStorage e sessão demonstrativa mantidos. As demais correções de estoque e o alinhamento completo dos diagramas continuam pendentes.
