@@ -43,7 +43,7 @@ jobs:
                   commits = json.load(response)
               for commit in commits:
                   count += 1
-                  if len(commit['parents']) > 1:
+                  if (base == 'dev' and head == 'main' and same_repo) or len(commit['parents']) > 1:
                       continue
                   subject = commit['commit']['message'].splitlines()[0]
                   if not pattern.fullmatch(subject):
