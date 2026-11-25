@@ -1,6 +1,7 @@
 # Mercadinho Silva Camargo
 
 Projeto Integrador de ADS — controle de entrada e saída de produtos.
+ACESSO:https://projeto-integrador-mercado.github.io/Projeto-Inicial/mercadinho-atualizado/html/index.html
 
 ## Organização
 
