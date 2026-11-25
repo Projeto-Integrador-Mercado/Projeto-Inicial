@@ -9,7 +9,7 @@ let editandoId = null;
 // ---------- localStorage ---------
 function carregar() {
   try {
-    produtos = JSON.parse(localStorage.getItem(CHAVE)) || [];
+    produtos = lerDados(CHAVE);
   } catch (e) {
     alert('Não foi possível ler os dados salvos.');
     produtos = [];
@@ -17,8 +17,7 @@ function carregar() {
 }
 function salvar() {
   try {
-    localStorage.setItem(CHAVE, JSON.stringify(produtos));
-    return true;
+    return guardarDados(CHAVE, produtos);
   } catch (e) {
     alert('Não foi possível salvar os dados. Nada foi alterado.');
     return false;
@@ -103,6 +102,9 @@ function abrirModal(id) {
     $(c).value = p ? (valor ?? '') : '';
   });
   if (!p) $('unidade').value = 'un';
+  $('qtd').readOnly = Boolean(p);
+  $('unidade').disabled = Boolean(p);
+  $('qtd').title = p ? 'Use a tela Estoque para alterar o saldo.' : 'Saldo inicial registrado como entrada.';
   $('modal').classList.add('aberto');
   $('nome').focus();
 }
@@ -111,8 +113,15 @@ function fecharModal() { $('modal').classList.remove('aberto'); }
 
 $('formProduto').addEventListener('submit', function (e) {
   e.preventDefault();
+  carregar();
   const dados = {};
   campos.forEach(c => { dados[c] = $(c).value.trim(); });
+  if (editandoId) {
+    const atual = produtos.find(p => p.id === editandoId);
+    if (!atual) { $('erroForm').textContent = 'Produto não encontrado. Reabra o cadastro.'; return; }
+    dados.qtd = String(atual.qtd);
+    dados.unidade = atual.unidade;
+  }
   // categoria e fornecedor agora são guardados por id (chave estrangeira)
   dados.categoriaId = dados.categoria; delete dados.categoria;
   dados.fornecedorId = dados.fornecedor; delete dados.fornecedor;
@@ -120,6 +129,9 @@ $('formProduto').addEventListener('submit', function (e) {
   if (!dados.nome || !dados.categoriaId || !dados.barras || !dados.fornecedorId) {
     $('erroForm').textContent = 'Preencha todos os campos marcados com *.';
     return;
+  }
+  if (!lerDados('fornecedores_mercadinho').some(f => f.id === dados.fornecedorId) || !lerDados(CHAVE_CATEGORIAS).some(c => c.id === dados.categoriaId)) {
+    $('erroForm').textContent = 'Selecione categoria e fornecedor existentes.'; return;
   }
   if (!/^\d+$/.test(dados.barras)) {
     $('erroForm').textContent = 'O código de barras deve ter apenas números.';
@@ -131,10 +143,13 @@ $('formProduto').addEventListener('submit', function (e) {
     return;
   }
   for (const c of ['custo','venda','qtd','minimo']) {
-    if (dados[c] !== '' && Number(dados[c]) < 0) {
+    if (dados[c] !== '' && (!Number.isFinite(Number(dados[c])) || Number(dados[c]) < 0)) {
       $('erroForm').textContent = 'Valores não podem ser negativos.';
       return;
     }
+  }
+  if (!quantidadeValida(dados.qtd || '0', dados.unidade) || !quantidadeValida(dados.minimo || '0', dados.unidade)) {
+    $('erroForm').textContent = 'Use inteiros para un/cx e até 3 casas para kg/l.'; return;
   }
   ['custo','venda'].forEach(c => { dados[c] = Number(dados[c] || 0); });
   ['qtd','minimo'].forEach(c => { dados[c] = arredondar(dados[c]); });
@@ -150,10 +165,10 @@ $('formProduto').addEventListener('submit', function (e) {
     produtoId = Date.now().toString();
     produtos.push({ id: produtoId, ...dados, ativo: true });
   }
-  if (!salvar()) { produtos = JSON.parse(copia); return; }
-  // todo movimento de estoque precisa de histórico, inclusive o estoque inicial
-  if (!editandoId && dados.qtd > 0) registrarMovimentacao({produtoId, tipo:'entrada', quantidade: dados.qtd, anterior: 0, final: dados.qtd, fornecedorId: dados.fornecedorId, observacao:'Estoque inicial do cadastro'});
-  if (editandoId && dados.qtd !== anterior) registrarMovimentacao({produtoId, tipo:'ajuste', quantidade: dados.qtd, anterior, final: dados.qtd, fornecedorId:'', observacao:'Ajuste feito pela edição do cadastro'});
+  let movimento = null;
+  if (!editandoId && dados.qtd > 0) movimento = {produtoId, tipo:'entrada', quantidade:dados.qtd, anterior:0, final:dados.qtd, fornecedorId:dados.fornecedorId, observacao:'Estoque inicial do cadastro'};
+  if (editandoId && dados.qtd !== anterior) movimento = {produtoId, tipo:'ajuste', quantidade:dados.qtd, anterior, final:dados.qtd, fornecedorId:'', observacao:'Ajuste feito pela edição do cadastro'};
+  if (!salvarProdutosComMovimentacao(produtos, movimento)) { produtos = JSON.parse(copia); return; }
   fecharModal();
   mostrar();
 });
@@ -213,3 +228,4 @@ carregar();
 atualizarCategorias();
 atualizarFornecedores();
 mostrar();
+
