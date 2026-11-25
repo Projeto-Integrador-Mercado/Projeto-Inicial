@@ -15,6 +15,8 @@ Abra mercadinho-atualizado/html/index.html com um servidor local ou pela URL pub
 
 Os nomes ignoram maiúsculas/minúsculas. Todos acessam o mesmo estoque local; não existem perfis diferentes. A sessão usa sessionStorage e o botão Sair encerra o acesso demonstrativo.
 
+ACESSO:https://projeto-integrador-mercado.github.io/Projeto-Inicial/mercadinho-atualizado/html/
+
 ## Uso
 
 1. Cadastre fornecedores. Na tela Produtos, crie a categoria e o produto.
