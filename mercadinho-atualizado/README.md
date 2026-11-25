@@ -50,7 +50,7 @@ Os HTML carregam o CSS com `./style.css` e os scripts com `../js/`. Por isso, **
 
 | Usuário | Senha |
 |---|---|
-| `admin` | `1234` |
+| `Primeiro nome do Integrante` | `1234` |
 
 Não é preciso instalar nada. Se preferir, também é possível abrir por um servidor local (por exemplo, a extensão Live Server do VS Code).
 
