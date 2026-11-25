@@ -1,0 +1,12 @@
+[
+  {
+    "arquivo": "docs/TESTES.md",
+    "sha256_anterior": null,
+    "sha256_novo": "2b558730b276ac9046cc0050ebd9fcfce48a65e7d1c71a46853e24fc3235fd52"
+  },
+  {
+    "arquivo": "tests/estoque.cjs",
+    "sha256_anterior": null,
+    "sha256_novo": "ff478469d93537c981f23825046e5c39fd5b3fdec2a6c189cc3371a7d550f6a9"
+  }
+]
