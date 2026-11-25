@@ -1,30 +1,50 @@
 if (sessionStorage.getItem("logado") !== "sim") location.replace("index.html");
-function lerDados(chave) {
-  try {
-    const dados = JSON.parse(localStorage.getItem(chave));
-    return Array.isArray(dados) ? dados : [];
-  } catch {
-    return [];
+// Todas as listas continuam no localStorage. Uma gravação reúne saldo e histórico.
+const CHAVE_ESTADO = 'estado_mercadinho_v3';
+const LISTAS = ['produtos_mercadinho', 'fornecedores_mercadinho', 'categorias_mercadinho', 'movimentacoes_mercadinho'];
+function lerEstado() {
+  const raw = localStorage.getItem(CHAVE_ESTADO);
+  const estado = raw === null ? Object.fromEntries(LISTAS.map(chave => {
+    const antigo = localStorage.getItem(chave);
+    return [chave, antigo === null ? [] : JSON.parse(antigo)];
+  })) : JSON.parse(raw);
+  if (!estado || LISTAS.some(chave => !Array.isArray(estado[chave]))) {
+    throw new Error('Dados inválidos. Preserve o armazenamento antes de recuperar um backup.');
   }
+  return estado;
+}
+function lerDados(chave) {
+  if (!LISTAS.includes(chave)) throw new Error('Lista desconhecida.');
+  return lerEstado()[chave];
 }
 function guardarDados(chave, valor) {
   try {
-    localStorage.setItem(chave, JSON.stringify(valor));
+    if (!LISTAS.includes(chave) || !Array.isArray(valor)) throw new Error('Lista inválida.');
+    const estado = lerEstado();
+    estado[chave] = valor;
+    localStorage.setItem(CHAVE_ESTADO, JSON.stringify(estado));
     return true;
   } catch {
-    alert("Falha ao salvar os dados no navegador.");
+    alert('Falha ao salvar. Os dados anteriores foram preservados.');
+    return false;
+  }
+}
+function salvarProdutosComMovimentacao(produtos, movimento) {
+  try {
+    const estado = lerEstado();
+    estado.produtos_mercadinho = produtos;
+    if (movimento) estado.movimentacoes_mercadinho.unshift({
+      ...movimento, id: novoId(), data: new Date().toISOString(),
+    });
+    localStorage.setItem(CHAVE_ESTADO, JSON.stringify(estado));
+    return true;
+  } catch {
+    alert('Falha ao salvar. Estoque e histórico não foram alterados.');
     return false;
   }
 }
 function registrarMovimentacao(m) {
-  const chave = "movimentacoes_mercadinho";
-  const lista = lerDados(chave);
-  lista.unshift({
-    id: String(Date.now()) + "-" + Math.random().toString(36).slice(2, 8),
-    data: new Date().toISOString(),
-    ...m,
-  });
-  return guardarDados(chave, lista);
+  return salvarProdutosComMovimentacao(lerDados('produtos_mercadinho'), m);
 }
 function textoSeguro(v) {
   return String(v ?? "").replace(
@@ -50,7 +70,7 @@ function sair() {
 }
 
 // ---------- NOVO: quantidades decimais (kg, l) ----------
-// Arredonda para 3 casas, como o banco (REAL com 3 casas), evitando 0.1 + 0.2 = 0.30000000000000004
+// Arredonda para 3 casas, evitando 0.1 + 0.2 = 0.30000000000000004
 function arredondar(v) {
   return Math.round(numero(v) * 1000) / 1000;
 }
@@ -67,7 +87,7 @@ function novoId() {
 
 // ---------- NOVO: migração dos dados antigos (versão 1 -> 2) ----------
 // Roda uma única vez por navegador. Converte os nomes guardados antes
-// (categoria, fornecedor) em ids, igual às chaves estrangeiras do banco.
+// (categoria, fornecedor) em ids de referência entre os objetos locais.
 const VERSAO_DADOS = "2";
 function migrarDados() {
   if (localStorage.getItem("versao_dados_mercadinho") === VERSAO_DADOS) return;
@@ -147,3 +167,12 @@ function migrarDados() {
     localStorage.setItem("versao_dados_mercadinho", VERSAO_DADOS);
 }
 migrarDados();
+
+
+function quantidadeValida(valor, unidade, permiteZero = true) {
+  if (String(valor).trim() === '' || !['un', 'cx', 'kg', 'l'].includes(unidade)) return false;
+  const n = Number(valor), escala = n * 1000;
+  if (!Number.isFinite(n) || n < 0 || (!permiteZero && n === 0) || Math.abs(escala) > Number.MAX_SAFE_INTEGER) return false;
+  if (unidade === 'un' || unidade === 'cx') return Number.isInteger(n);
+  return Math.abs(escala - Math.round(escala)) < 0.000001;
+}
