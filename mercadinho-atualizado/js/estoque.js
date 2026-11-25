@@ -36,6 +36,7 @@ function render() {
     : '<tr><td class="vazio" colspan="6">Nenhum produto encontrado. Cadastre um produto na tela Produtos.</td></tr>';
 }
 function abrir(t, id) {
+  produtos = lerDados(chave);
   tipo = t;
   $("formMov").reset();
   $("erro").textContent = "";
@@ -62,6 +63,7 @@ function abrir(t, id) {
     t === "ajuste" ? "Quantidade Final *" : "Quantidade *";
   $("quantidade").min = t === "ajuste" ? "0" : "0.001";
   $("ajudaQtd").hidden = t !== "ajuste";
+  $("observacao").required = t === "ajuste";
   $("campoFornecedor").hidden = t !== "entrada";
   $("produto").innerHTML =
     '<option value="">Selecione o produto</option>' +
@@ -78,9 +80,16 @@ function abrir(t, id) {
       .map((f) => `<option value="${f.id}">${textoSeguro(f.nome)}</option>`)
       .join("");
   if (id) $("produto").value = id;
+  $("fornecedor").disabled = true;
+  atualizarFornecedorEntrada();
   $("produto").focus();
   $("painel").scrollIntoView({ behavior: "smooth", block: "start" });
 }
+function atualizarFornecedorEntrada() {
+  const p = ativos().find(p => p.id === $("produto").value);
+  $("fornecedor").value = p?.fornecedorId || '';
+}
+$("produto").onchange = atualizarFornecedorEntrada;
 function fechar() {
   $("painel").hidden = true;
 }
@@ -96,18 +105,33 @@ $("lista").onclick = (e) => {
 };
 $("formMov").onsubmit = (e) => {
   e.preventDefault();
+  produtos = lerDados(chave);
   const p = ativos().find((x) => x.id === $("produto").value),
     q = arredondar($("quantidade").value);
   if (!p) {
     $("erro").textContent = "Selecione um produto.";
     return;
   }
+  if (!quantidadeValida($("quantidade").value, p.unidade, tipo === 'ajuste') || !quantidadeValida(p.qtd, p.unidade)) {
+    $("erro").textContent = 'Use inteiros para un/cx e até 3 casas para kg/l. Verifique também o saldo cadastrado.'; return;
+  }
   // quantidade pode ser decimal (kg, l); entrada e saída precisam ser maiores que zero
   if (!Number.isFinite(q) || q < 0 || (tipo !== "ajuste" && q <= 0)) {
     $("erro").textContent = "Informe uma quantidade válida.";
     return;
   }
+  const motivo = $("observacao").value.trim();
+  if (tipo === 'ajuste' && !motivo) {
+    $("erro").textContent = 'Informe o motivo do ajuste.'; return;
+  }
+  const fornecedor = lerDados('fornecedores_mercadinho').find(f => f.id === p.fornecedorId);
+  if (tipo === 'entrada' && !fornecedor) {
+    $("erro").textContent = 'Cadastre um fornecedor válido para este produto.'; return;
+  }
   const anterior = arredondar(p.qtd);
+  if (tipo === 'ajuste' && q === anterior) {
+    $("erro").textContent = 'O saldo informado já é o saldo atual.'; return;
+  }
   if (tipo === "saida" && q > anterior) {
     $("erro").textContent =
       "Quantidade maior do que o estoque disponível (" +
@@ -118,21 +142,24 @@ $("formMov").onsubmit = (e) => {
   const nova = arredondar(
     tipo === "entrada" ? anterior + q : tipo === "saida" ? anterior - q : q,
   );
+  if (!quantidadeValida(nova, p.unidade)) {
+    $("erro").textContent = 'Saldo fora do limite permitido.'; return;
+  }
   const atualizados = produtos.map((x) =>
     x.id === p.id ? { ...x, qtd: nova } : x,
   );
-  if (!guardarDados(chave, atualizados)) return;
-  produtos = atualizados;
-  registrarMovimentacao({
+  if (!salvarProdutosComMovimentacao(atualizados, {
     produtoId: p.id,
     tipo,
-    quantidade: q,
+    quantidade: tipo === "ajuste" ? arredondar(nova - anterior) : q,
     anterior,
     final: nova,
-    fornecedorId: tipo === "entrada" ? $("fornecedor").value : "",
+    fornecedorId: tipo === "entrada" ? p.fornecedorId : "",
     observacao: $("observacao").value.trim(),
-  });
+  })) return;
+  produtos = atualizados;
   fechar();
   render();
 };
 render();
+
