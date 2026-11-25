@@ -50,10 +50,7 @@ Os HTML carregam o CSS com `./style.css` e os scripts com `../js/`. Por isso, **
 
 | Usuário | Senha |
 |---|---|
-| `Richard` | `1234` |
-| `Dorsa` | `1234` |
-| `Gabriel` | `1234` |
-| `Victor` | `1234` |
+| `admin` | `1234` |
 
 Não é preciso instalar nada. Se preferir, também é possível abrir por um servidor local (por exemplo, a extensão Live Server do VS Code).
 
@@ -109,7 +106,7 @@ Um único arquivo para todo o sistema.
 | `sair()` | Encerra a sessão e volta ao login |
 
 ### `login.js`
-Aceita Richard, Dorsa, Gabriel e Victor com a senha demonstrativa `1234`. O nome ignora maiúsculas/minúsculas e espaços nas extremidades; a sessão guarda a grafia canônica. Não há cadastro, permissões diferentes ou separação do estoque por usuário. Se estiverem corretos, grava `logado` e `usuario` no `sessionStorage` e abre o dashboard.
+Aceita o usuário "admin" com a senha demonstrativa `1234`. O nome não ignora maiúsculas/minúsculas e espaços nas extremidades; a sessão guarda a grafia canônica. Não há cadastro, permissões diferentes ou separação do estoque por usuário. Se estiverem corretos, grava `logado` e `usuario` no `sessionStorage` e abre o dashboard.
 
 ### `produtos.js`
 - Lista os produtos ativos (e os inativos, se o filtro estiver marcado), com busca por nome, categoria ou código de barras.
