@@ -1,0 +1,32 @@
+[
+  {
+    "arquivo": "docs/diagramas/README.md",
+    "sha256_anterior": null,
+    "sha256_novo": "73650d8eaf845d63c8626ccbf24603477b16397622f8c63ed0af553dfae8c461"
+  },
+  {
+    "arquivo": "docs/diagramas/modelo-atual.dot",
+    "sha256_anterior": null,
+    "sha256_novo": "48007c3b1484cab36ee6a2fe3c86514873362e5ef762bc861eaeec5ff548a1b8"
+  },
+  {
+    "arquivo": "docs/diagramas/modelo-atual.md",
+    "sha256_anterior": null,
+    "sha256_novo": "0f6999f2f746df9d0356585b5e5f63f9719639e9f928ac2b407dfce7a513799a"
+  },
+  {
+    "arquivo": "docs/diagramas/modelo-atual.pdf",
+    "sha256_anterior": null,
+    "sha256_novo": "c80be53b2f6631000a9877f881923943780ab71f5acc7fe1314d9f1214a4a2d6"
+  },
+  {
+    "arquivo": "docs/diagramas/modelo-atual.png",
+    "sha256_anterior": null,
+    "sha256_novo": "d37f1475aae384b2a6d4ede7b2c22bf49517ece4f23b5a75f87da2188e424c5d"
+  },
+  {
+    "arquivo": "docs/diagramas/modelo-atual.svg",
+    "sha256_anterior": null,
+    "sha256_novo": "9dad753f7a28072a7129ad93a2a4d64ad0b84e4a69ae2ea2bffd72414486b5e8"
+  }
+]

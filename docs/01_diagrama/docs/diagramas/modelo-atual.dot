@@ -1,0 +1,13 @@
+digraph Modelo {
+graph [rankdir=TB, bgcolor="white", nodesep=0.7, ranksep=0.8, pad=0.35];
+node [shape=record, fontname="DejaVu Sans", fontsize=12, style=filled, fillcolor="#eef4fa"];
+edge [fontname="DejaVu Sans", fontsize=10, dir=none];
+Categoria [label="{Categoria|id: string\lnome: string\l}"];
+Fornecedor [label="{Fornecedor|id: string\lnome: string\ltelefone: string\lwhatsapp: string\lemail: string\lprazo: string\lendereco: string\lobs: string\l}"];
+Produto [label="{Produto|id: string\lnome: string\lcategoriaId: string\lfornecedorId: string\lbarras: string\lcusto: number\lvenda: number\lqtd: number\lminimo: number\lunidade: un / kg / l / cx\llocal: string\lobs: string\lativo: boolean\l}"];
+Movimentacao [label="{Movimentacao|id: string\ldata: string ISO\lprodutoId: string\ltipo: entrada / saida / ajuste\lquantidade: number\lanterior: number\lfinal: number\lfornecedorId: string\lobservacao: string\l}"];
+Categoria -> Produto [taillabel="1",headlabel="0..*",label="classifica"];
+Fornecedor -> Produto [taillabel="1",headlabel="0..*",label="principal"];
+Produto -> Movimentacao [taillabel="1",headlabel="0..*",label="registra"];
+Fornecedor -> Movimentacao [taillabel="0..1",headlabel="0..*",label="fornecedor da entrada",constraint=false];
+}
