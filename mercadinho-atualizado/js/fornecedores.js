@@ -52,6 +52,8 @@ $("cancelar").onclick = fechar;
 $("busca").oninput = render;
 $("formFornecedor").onsubmit = (e) => {
   e.preventDefault();
+  fornecedores = lerDados(chave);
+  const copia = JSON.stringify(fornecedores);
   const d = {};
   campos.forEach((c) => (d[c] = $(c).value.trim()));
   if (!d.nome) {
@@ -70,7 +72,7 @@ $("formFornecedor").onsubmit = (e) => {
   if (guardarDados(chave, fornecedores)) {
     fechar();
     render();
-  }
+  } else fornecedores = JSON.parse(copia);
 };
 $("lista").onclick = (e) => {
   const ed = e.target.closest("[data-editar]"),
@@ -83,6 +85,9 @@ $("lista").onclick = (e) => {
     const vinculados = lerDados("produtos_mercadinho").filter(
       (p) => p.fornecedorId === f.id,
     );
+    if (lerDados('movimentacoes_mercadinho').some(m => m.fornecedorId === f.id)) {
+      alert('Fornecedor possui movimentações registradas e deve ser preservado.'); return;
+    }
     if (vinculados.length) {
       const ativosN = vinculados.filter((p) => p.ativo !== false).length;
       alert(
@@ -106,3 +111,4 @@ $("lista").onclick = (e) => {
   }
 };
 render();
+
